@@ -771,6 +771,11 @@ video {
   color: rgb(197 197 197 / var(--tw-text-opacity));
 }
 
+.text-\[\#FF8660\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 134 96 / var(--tw-text-opacity));
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -779,10 +784,6 @@ video {
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-.text-transparent {
-  color: transparent;
 }
 
 .text-white {
