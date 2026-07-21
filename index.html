@@ -15,6 +15,47 @@
         body { font-family: 'Inter', sans-serif; }
         .font-display { font-family: 'Fraunces', serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        .stat-fallback {
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-fallback .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,122,69,0.14), transparent);
+            animation: scan 2.2s ease-in-out infinite;
+        }
+        @keyframes scan {
+            0%   { transform: translateX(-120%); }
+            100% { transform: translateX(320%); }
+        }
+        .stat-fallback .bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 5px;
+            height: 28px;
+        }
+        .stat-fallback .bars span {
+            width: 4px;
+            background: #FF7A45;
+            border-radius: 2px;
+            animation: bar-pulse 1.2s ease-in-out infinite;
+        }
+        .stat-fallback .bars span:nth-child(1) { animation-delay: 0s; }
+        .stat-fallback .bars span:nth-child(2) { animation-delay: 0.12s; }
+        .stat-fallback .bars span:nth-child(3) { animation-delay: 0.24s; }
+        .stat-fallback .bars span:nth-child(4) { animation-delay: 0.36s; }
+        .stat-fallback .bars span:nth-child(5) { animation-delay: 0.48s; }
+        .stat-fallback .bars span:nth-child(6) { animation-delay: 0.6s; }
+        .stat-fallback .bars span:nth-child(7) { animation-delay: 0.72s; }
+        @keyframes bar-pulse {
+            0%, 100% { height: 6px; opacity: 0.35; }
+            50%      { height: 28px; opacity: 1; }
+        }
     </style>
 </head>
 
@@ -52,7 +93,7 @@
                    class="text-white bg-[#1B1913] hover:bg-[#33301F] transition-colors rounded-md px-6 py-3 text-[14px] font-medium">
                     CLI Portfolio
                 </a>
-                <a href="https://drive.google.com/file/d/174DR7g91rp9kCiKmRmUonC8KtCh7MCJq/view?usp=sharing"
+                <a href="https://drive.google.com/file/d/186lUReUnCTQOuhG9jP2yblHbYP83Jdha/view?usp=drivesdk"
                    class="text-[#1B1913] border border-[#1B1913]/25 hover:border-[#1B1913] transition-colors rounded-md px-6 py-3 text-[14px] font-medium">
                     Download CV
                 </a>
@@ -215,8 +256,32 @@
         <section>
             <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8A8371] mb-5">GitHub Activity</h2>
             <div class="flex flex-col gap-4">
-                <img class="w-full rounded-md border border-[#EDE7D9]" src="https://github-readme-streak-stats.herokuapp.com/?user=Marino2004&theme=default&hide_border=true&background=FAF9F4" alt="Statistiques de la série GitHub" />
-                <img class="w-full rounded-md border border-[#EDE7D9]" src="https://github-readme-stats.vercel.app/api/?username=Marino2004&include_all_commits=true&theme=default&hide_border=true&bg_color=FAF9F4&rank_icon=github&ring_color=FF7A45" alt="Statistiques GitHub" />
+                <div>
+                    <img class="w-full rounded-md border border-[#EDE7D9]"
+                         src="https://github-readme-streak-stats.herokuapp.com/?user=Marino2004&theme=default&hide_border=true&background=FAF9F4"
+                         alt="Statistiques de la série GitHub"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div class="stat-fallback hidden w-full rounded-md border border-[#EDE7D9] bg-white h-[130px] flex-col items-center justify-center gap-3" style="display:none;">
+                        <div class="scan-line"></div>
+                        <div class="bars">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-[#8A8371]">Commit log syncing</span>
+                    </div>
+                </div>
+                <div>
+                    <img class="w-full rounded-md border border-[#EDE7D9]"
+                         src="https://github-readme-stats.vercel.app/api/?username=Marino2004&include_all_commits=true&theme=default&hide_border=true&bg_color=FAF9F4&rank_icon=github&ring_color=FF7A45"
+                         alt="Statistiques GitHub"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div class="stat-fallback hidden w-full rounded-md border border-[#EDE7D9] bg-white h-[130px] flex-col items-center justify-center gap-3" style="display:none;">
+                        <div class="scan-line"></div>
+                        <div class="bars">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-[#8A8371]">Repository stats syncing</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -238,11 +303,4 @@
                     <a href="https://www.facebook.com/profile.php?id=10008496608551" class="text-[#8A8371] hover:text-[#FF7A45] transition-colors">
                         <i class="fab fa-facebook-f text-[18px]"></i>
                     </a>
-                </li>
-            </ul>
-        </footer>
-    </div>
-    <script defer src="https://vercel.live/speed-insights/script.js"></script>
-</body>
-
-</html>
+                <
